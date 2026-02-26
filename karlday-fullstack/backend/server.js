@@ -1,36 +1,29 @@
+// backend/server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path');
 require('dotenv').config();
-
-const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
-// Middlewares básicos
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
 // Conexión a MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('He conectado exitosamente con MongoDB'))
-  .catch(err => console.error('Error de conexión a Mongo:', err));
+mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/karlday')
+.then(() => console.log('He conectado mi servidor exitosamente con MongoDB'))
+.catch(err => console.error('Error al conectar con MongoDB:', err));
 
-// Rutas de la API
-app.use('/api', require('./routes/api'));
+// --- REGISTRO DE RUTAS REALES ---
+// Usamos api.js para TODO lo relacionado con productos y login
+app.use('/api/products', require('./routes/api')); 
+app.use('/api/users', require('./routes/api')); 
 
-// Middleware global de manejo de errores (Requisito de la rúbrica)
-app.use(errorHandler);
-
-// --- CONFIGURACIÓN PARA PRODUCCIÓN (RENDER) ---
-// Sirve los archivos estáticos de la carpeta 'dist' de React
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-// Cualquier ruta que no sea de la API, se la pasamos a React Router
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
-});
+// Usamos currency.js para el dólar
+app.use('/api/currency', require('./routes/currency'));
 
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Mi servidor está corriendo al 100% en el puerto ${PORT}`);
+});

@@ -1,0 +1,97 @@
+/* src/components/Header.css */
+
+/* Configuro mi contenedor principal para que la barra de navegación me siga (sticky) al hacer scroll en el catálogo */
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--karlday-white);
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* Añado una barra superior negra para comunicar anuncios o promociones, idéntica a la estrategia visual de grandes marcas */
+.top-bar {
+    background-color: var(--karlday-black);
+    color: var(--karlday-white);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px 0;
+    letter-spacing: 1px;
+}
+
+/* Utilizo Flexbox para alinear de manera perfecta mi logo a la izquierda, categorías al centro y utilidades a la derecha */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 30px;
+}
+
+/* Configuro el tamaño visual de mi logotipo */
+.logo-link {
+    font-size: 24px;
+    color: var(--karlday-black);
+}
+
+/* Agrupo mis enlaces de categorías centrales con una separación simétrica */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+/* Estilizo cada enlace del menú para que denote fuerza de marca (mayúsculas y negritas) */
+.nav-item {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 20px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Programo el efecto visual de una línea negra que se despliega al pasar el mouse por encima de mis enlaces */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--karlday-black);
+    transition: width 0.3s;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Alineo mis iconos de la derecha (Buscar, Usuario, Carrito) */
+.nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Configuro el comportamiento visual de mis iconos para que el usuario entienda que son clickeables */
+.icon-link {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--karlday-black);
+    transition: color 0.2s ease-in-out;
+}
+
+/* Programo la responsividad básica: oculto los textos en celulares para mantener la limpieza visual */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    .main-nav {
+        padding: 0 15px;
+    }
+}

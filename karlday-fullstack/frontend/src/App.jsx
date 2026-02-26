@@ -1,38 +1,31 @@
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Componente para proteger la ruta del Dashboard
-const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
-  return children;
-};
+// Importo mi Header corporativo
+import Header from './components/Header';
+
+// Importo todas mis páginas
+import Home from './pages/Home';
+import Catalogo from './pages/Catalogo';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import ProductoDetalle from './pages/ProductoDetalle'; // Importo mi nueva página de detalle
 
 function App() {
   return (
     <Router>
-      <Routes>
-        {/* Ruta pública: Catálogo de productos */}
-        <Route path="/" element={<Home />} />
-        
-        {/* Ruta pública: Pantalla de inicio de sesión */}
-        <Route path="/login" element={<Login />} />
-        
-        {/* Ruta privada: Panel de administración (Protegida) */}
-        <Route 
-          path="/dashboard" 
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          } 
-        />
-      </Routes>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          {/* Añado la ruta dinámica para ver el detalle de cada prenda */}
+          <Route path="/producto/:id" element={<ProductoDetalle />} />
+        </Routes>
+      </main>
     </Router>
   );
 }

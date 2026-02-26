@@ -1,4 +1,4 @@
-/* Reset básico y tipografía */
+/* frontend/src/App.css */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +6,6 @@
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Navbar estilo Adidas */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -22,13 +21,17 @@
   letter-spacing: -1px;
 }
 
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
 .nav-links a {
   text-decoration: none;
   color: black;
   font-weight: bold;
   font-size: 14px;
   text-transform: uppercase;
-  margin: 0 15px;
 }
 
 .nav-links a:hover {
@@ -36,7 +39,6 @@
   text-underline-offset: 6px;
 }
 
-/* Grid de Productos */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -46,18 +48,16 @@
   margin: 0 auto;
 }
 
-/* Tarjeta de Producto */
 .product-card {
   cursor: pointer;
 }
 
 .image-container {
-  background-color: #ececec; /* El fondo gris claro de Adidas */
+  background-color: #ececec;
   aspect-ratio: 1 / 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   overflow: hidden;
 }
 

@@ -1,0 +1,54 @@
+/* src/index.css */
+
+/* Defino mis variables de marca para asegurar que el negro y blanco de Adidas sean consistentes en Karlday */
+:root {
+  --karlday-black: #000000;
+  --karlday-white: #ffffff;
+  --karlday-gray: #eceff1;
+  --font-main: 'Inter', sans-serif;
+}
+
+/* Reseteo los márgenes y rellenos para tener control total sobre la rejilla de mis productos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Aplico la tipografía limpia y el fondo blanco que observamos en las capturas de referencia de la marca */
+body {
+  font-family: var(--font-main);
+  background-color: var(--karlday-white);
+  color: var(--karlday-black);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Configuro mis enlaces para que no tengan subrayado y hereden el color negro corporativo */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Creo una clase de utilidad para los títulos que requieren ese impacto visual de "negrita extrema" tipo Adidas */
+.font-bold-brand {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+/* Estilizo los botones principales para que sean rectangulares y sólidos, como el botón "Comprar ahora" */
+.btn-primary {
+  background-color: var(--karlday-black);
+  color: var(--karlday-white);
+  padding: 12px 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}

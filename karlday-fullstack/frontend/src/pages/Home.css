@@ -1,0 +1,117 @@
+/* src/pages/Home.css */
+
+/* --- HERO BANNER PRINCIPAL --- */
+/* Configuro un contenedor que ocupe casi toda la pantalla visual (85vh) para lograr un impacto inmersivo */
+.hero-banner {
+    position: relative;
+    height: 85vh;
+    background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071&auto=format&fit=crop'); /* Imagen premium de moda de Unsplash */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* Alineo el contenido hacia la parte inferior, estilo Adidas */
+    padding: 50px;
+}
+
+/* Agrego un degradado oscuro en la base de la imagen para garantizar que mi texto blanco siempre sea legible */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+}
+
+/* Contenedor de la tipografía del banner */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--karlday-white);
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+/* --- BOTONES ESTILO ADIDAS --- */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Diseño un botón rectangular, sólido y con contraste agresivo */
+.btn-primary {
+    background-color: var(--karlday-white);
+    color: var(--karlday-black);
+    padding: 15px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--karlday-white);
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    color: var(--karlday-white);
+    background-color: transparent;
+}
+
+/* --- SECCIÓN DE CATEGORÍAS --- */
+.categories-section {
+    padding: 60px 30px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.categories-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Tarjetas circulares para las categorías (Muy usado en e-commerce moderno) */
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /* Pequeña animación al pasar el mouse */
+}
+
+.category-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.category-name {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}

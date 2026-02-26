@@ -1,0 +1,79 @@
+/* src/pages/Dashboard.css */
+
+/* Configuro el contenedor principal con un margen superior para que no choque con mi Header */
+.dashboard-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Estilo el título principal con la fuerza de marca que definí en mi index.css */
+.dashboard-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    border-bottom: 4px solid var(--karlday-black);
+    display: inline-block;
+}
+
+/* Diseño la sección de formulario como una tarjeta limpia y espaciosa */
+.form-card {
+    background-color: var(--karlday-gray);
+    padding: 30px;
+    margin-bottom: 50px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+/* Estilizo mis inputs para que tengan el borde negro sólido característico de marcas premium */
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--karlday-black);
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+/* --- TABLA DE INVENTARIO --- */
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.inventory-table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid var(--karlday-black);
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.inventory-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 14px;
+}
+
+/* Botón de eliminar con un rojo sutil pero de advertencia */
+.btn-delete {
+    color: #d32f2f;
+    font-weight: 700;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
